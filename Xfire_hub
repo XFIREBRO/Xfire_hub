@@ -1,0 +1,27 @@
+local success, result = pcall(function()
+    return game:HttpGet("https://raw.githubusercontent.com/XFIREBRO/Xfire_hub/main/MyScript")
+end)
+
+if not success then return end
+
+local modifiedScript = string.gsub(result, "Redz", "Xfire hub")
+
+local scriptFunction = loadstring(modifiedScript)
+if scriptFunction then
+    scriptFunction()
+end
+
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "XfireGUI"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local icon = Instance.new("ImageLabel")
+icon.Name = "XfireIcon"
+icon.Image = "https://yt3.googleusercontent.com/ytc/AIdro_nXh-xyi86eNRFLHr9k8dCWE7O-7GnKac_XMKslZFKU8A=s900-c-k-c0x00ffffff-no-rj"
+icon.Size = UDim2.new(0, 100, 0, 100)
+icon.Position = UDim2.new(0, 10, 0, 10)
+icon.BackgroundTransparency = 1
+icon.BorderSizePixel = 0
+icon.Parent = gui
